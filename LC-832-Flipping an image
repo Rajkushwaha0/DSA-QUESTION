@@ -1,0 +1,15 @@
+//python
+class Solution:
+    def flipAndInvertImage(self, image: List[List[int]]) -> List[List[int]]:
+        l1=[]
+        for i in range(len(image)):
+            
+            j=image[i][::-1]
+            l=[]
+            for k in range(len(j)):
+                if(j[k]==1):
+                    l.append(0)
+                elif(j[k]==0):
+                    l.append(1)
+            l1.append(l)
+        return l1
