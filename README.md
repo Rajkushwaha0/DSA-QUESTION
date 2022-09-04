@@ -1,6 +1,8 @@
 # DSA-QUESTION
-Here, you can go through from the solution of problem of coding platform.
+Hey guys,Here you can go through all my solutions of various problem of different coding platforms.
 LC-leetcode
 GFG-geeksforgeek
 HR-hackerrank
 HE-hackerearth
+CC-codechef
+CF-codeforces
