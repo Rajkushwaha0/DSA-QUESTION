@@ -1,0 +1,33 @@
+class Solution {
+    public int[] nextGreaterElement(int[] a, int[] b) {
+        int [] c=new int[a.length];
+        int p=0;
+        List<Integer> l = new ArrayList<>();
+        for (int j = 0; j <b.length; j++) {
+            l.add(b[j]);
+        }
+        int h=0;
+        int d=0;
+        for (int i = 0; i < a.length; i++) {
+             h= l.indexOf(a[i]);
+             int min = b[h];
+            for (int k = h+1; k <b.length; k++) {
+                if(b[k]>min){
+                    min=b[k];
+                    break;
+               }
+            }
+            if(min==b[h]){
+                c[p]=-1;
+                p++;
+            }
+            else{
+                c[p]=min;
+                p++;
+            }
+
+        }
+        return c;
+        
+    }
+}
