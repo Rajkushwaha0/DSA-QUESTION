@@ -1,0 +1,38 @@
+class Solution {
+    int print2largest(int arr[], int n) {
+        if(n==0){
+            return -1;
+        }
+        if(n==1){
+            return -1;
+        }
+        // code here
+        Arrays.sort(arr);
+        HashSet<Integer> l =new HashSet<>();
+        int m=arr[0];
+        for (int i = 0; i <arr.length; i++) {
+            if(l.contains(arr[i])){
+                continue;
+            }
+            else{
+                if(arr[i]>=m){
+                    l.add(arr[i]);
+                }
+            }
+        }
+        if(l.size()==1) {
+            for (Integer s : l) {
+
+                return(-1);
+
+            }
+        }
+        ArrayList<Integer> a=new ArrayList<>();
+        for (Integer ele : l) {
+            a.add(ele);
+        }
+        Collections.sort(a);
+        int q=a.get(a.size()-2);
+        return q;
+    }
+}
