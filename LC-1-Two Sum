@@ -1,0 +1,34 @@
+//O(n^2)
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int c=0;
+        int[] b;
+        b= new int [2];
+        for(int i=0;i<nums.length;i++){
+            for(int j=i+1;j<nums.length;j++){
+                if(nums[i]+nums[j]==target){
+                    b[c]=i;
+                    b[c+1]=j;
+                    break;
+                }
+            }
+        }
+        return b;
+        
+    }
+}
+
+
+//O(n)
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        
+        l=[]
+        n=len(nums)
+        for i in range (n):
+            m=target-nums[i]
+            if (m in nums and i!=nums.index(m)):
+                l.append(i)
+                l.append(nums.index(m))
+                break
+        return l
