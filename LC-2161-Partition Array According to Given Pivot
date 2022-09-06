@@ -1,0 +1,36 @@
+//Extra Memory
+
+class Solution {
+    public int[] pivotArray(int[] l, int p1) {
+        ArrayList<Integer> a=new ArrayList<>();
+        ArrayList<Integer> b=new ArrayList<>();
+        ArrayList<Integer> c=new ArrayList<>();
+        
+        for (int i = 0; i < l.length; i++) {
+            if(l[i]==p1){
+                b.add(l[i]);
+            }
+            else if(l[i]<p1){
+                a.add(l[i]);
+            }
+            else{
+                c.add(l[i]);
+            }
+        }
+        int p=0;
+        int [] d=new int[l.length];
+        for(int i=0;i<a.size();i++){
+            d[p]=a.get(i);
+            p++;
+        }
+        for(int j =0;j <b.size();j++){
+            d[p]=b.get(j);
+            p++;
+        }
+        for(int k = 0;k <c.size();k++){
+            d[p]=c.get(k);
+            p++;
+        }
+        return d;
+    }
+}
