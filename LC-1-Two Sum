@@ -32,3 +32,37 @@ class Solution:
                 l.append(nums.index(m))
                 break
         return l
+        
+     
+//O(n)   O(1)  
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] b={-1,-1};
+        int i=0;
+        int j=nums.length-1;
+        int sum=0;
+        while(i<j){
+        sum=nums[i]+nums[j];
+        if(sum==target){
+                b[0]=i;
+                b[1]=j;
+                return b;
+        }
+        else if(sum>target){
+                j--;
+        
+        }
+        else{
+                i--;
+        }
+    }
+     return b;
+        
+    }
+}
+        
+        
+        
+        
+
+
