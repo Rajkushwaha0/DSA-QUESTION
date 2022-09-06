@@ -1,0 +1,29 @@
+//O(N)   O(N)
+
+int [] a={-5,-4,-2,0,1,3,4}
+int [] b=new int [a.length];
+        int k=a.length-1;
+        int i=0;
+        int j= a.length-1;
+        int ls=0,rs=0;
+        while(i<=j){
+            ls=a[i]*a[i];
+            rs=a[j]*a[j];
+            if(ls>rs){
+                b[k]=ls;
+                k--;
+                i++;
+            }
+            else{
+                b[k]=rs;
+                k--;
+                j--;
+            }
+        }
+        System.out.println(Arrays.toString(b));
+        
+        
+        
+ //O(NLOGN)
+ Just square each element in array
+And use Arrays.sort()
