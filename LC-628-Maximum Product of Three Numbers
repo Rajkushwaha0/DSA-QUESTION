@@ -1,0 +1,30 @@
+class Solution {
+    public int maximumProduct(int[] nums) {
+        Arrays.sort(nums);
+        if(nums.length<3){
+            return -1;
+        }
+        if(nums.length==3){
+            int p=1;
+            for(int i=0;i<nums.length;i++){
+                p*=nums[i];
+            }
+            return p;
+        }
+        int max=Integer.MIN_VALUE;
+        int ans=0;
+        for(int i=0;i<nums.length;i++){
+            int start=i+1;
+            int end=nums.length-1;
+            while(start<end){
+                ans=nums[i]*nums[start]*nums[end];
+                if(ans>max){
+                    max=ans;
+                }
+                start++;
+            }
+        }
+        return max;
+        
+    }
+}
