@@ -44,6 +44,8 @@ public class InsertAtBegin {
         System.out.println(" ");
         head=DeleteAtMiddle(head,2);
         print(head);
+        System.out.println(" ");
+        System.out.println(search(head,5));
 
     }
 
@@ -151,6 +153,25 @@ public class InsertAtBegin {
         System.out.print(head.data+" ");
         print(head.next);
 
+    }
+    
+    
+    //Print search value index
+    public static int search(Node head,int searchvalue){
+        int c=0;
+        Node temp=head;
+        while(temp!=null){
+            if(temp.data==searchvalue){
+                //c++ if index is 1
+                return c;
+
+            }
+            else
+                c++;
+                temp=temp.next;
+
+        }
+        return -1;
     }
 
 }
