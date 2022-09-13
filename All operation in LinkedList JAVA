@@ -1,0 +1,156 @@
+class Node{
+    int data;
+    Node next;
+    Node(int x){
+        data=x;
+        next=null;
+    }
+}
+
+public class InsertAtBegin {
+
+
+
+
+
+    public static void main(String[] args) {
+        Node head=null;
+//        Node head = new Node(1);
+//        Node temp = new Node(2);
+//        head.next=temp;
+//        temp.next=null;
+//        print(head);
+//        System.out.println(" ");
+        head=InsertAtBegin(head,4);
+        head=InsertAtBegin(head,5);
+        head=InsertAtBegin(head,6);
+        print(head);
+        System.out.println(" ");
+        head=InsertAtBegin(head,122);
+        print(head);
+
+        System.out.println(" ");
+        head = InsertAtEnd(head,2);
+        print(head);
+        System.out.println(" ");
+        head=InsertAtPos(head,2,7);
+        print(head);
+        System.out.println(" ");
+        head=DeleteAtBegin(head);
+        print(head);
+        System.out.println(" ");
+        head=DeleteAtEnd(head);
+        print(head);
+        System.out.println(" ");
+        head=DeleteAtMiddle(head,2);
+        print(head);
+
+    }
+
+
+    //Insert at head
+    public static Node InsertAtBegin(Node head,int value){
+        Node temp=new Node(value);
+        if(head==null) {
+            head=temp;
+            return head;
+        }
+        temp.next=head;
+        head=temp;
+        return head;
+    }
+    public static Node InsertAtPos(Node head,int position,int value){
+        Node temp=new Node(value);
+        Node curr=head;
+
+        if(position==1){
+            Node res4=InsertAtBegin(head,value);
+            return res4;
+        }
+        if(position==4){
+            Node res5= InsertAtEnd(head,value);
+            return res5;
+        }
+        int c=1;
+        //int c<position-1 for index starting from 1
+        while(c<position){
+            curr=curr.next;
+            c++;
+        }
+        temp.next=curr.next;
+        curr.next=temp;
+
+        return head;
+    }
+
+
+
+
+    //Insert at end
+    public static Node InsertAtEnd(Node head,int value){
+        Node temp= new Node(value);
+        if(head==null){
+            head=temp;
+
+            return head;
+        }
+        Node curr=head;
+        while(curr.next!=null){
+            curr=curr.next;
+        }
+        curr.next=temp;
+        temp.next=null;
+        return head;
+    }
+    //Delete at begin
+    public static Node DeleteAtBegin(Node head){
+        if(head==null){
+            return null;
+        }
+        return head.next;
+//        Node temp= head;
+//        head=temp.next;
+//        temp.next=null;
+//        return head;
+
+    }
+    public static  Node DeleteAtMiddle(Node head,int position){
+        Node curr=head;
+        Node perv=null;
+        int c=0;
+        //int c<position-1 for index starting from 1
+        while(c<position){
+            perv=curr;
+            curr=curr.next;
+            c++;
+        }
+        perv.next=curr.next;
+        curr.next=null;
+        return head;
+    }
+    public static Node DeleteAtEnd(Node head){
+        Node curr=head;
+        if(curr==null){
+            return curr;
+        }
+        if(curr.next==null){
+            curr=null;
+            return head;
+        }
+        while(curr.next.next!=null){
+            curr=curr.next;
+        }
+        curr.next=null;
+        return head;
+    }
+    //Printing element(Recursively)
+    public static void print(Node head){
+        if(head==null){
+            return ;
+        }
+        System.out.print(head.data+" ");
+        print(head.next);
+
+    }
+
+}
