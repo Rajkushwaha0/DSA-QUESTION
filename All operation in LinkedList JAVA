@@ -25,27 +25,27 @@ public class InsertAtBegin {
         head=InsertAtBegin(head,5);
         head=InsertAtBegin(head,6);
         print(head);
-        System.out.println(" ");
+        
         head=InsertAtBegin(head,122);
         print(head);
-
-        System.out.println(" ");
+        
         head = InsertAtEnd(head,2);
         print(head);
-        System.out.println(" ");
+        
         head=InsertAtPos(head,2,7);
         print(head);
-        System.out.println(" ");
+        
         head=DeleteAtBegin(head);
         print(head);
-        System.out.println(" ");
+        
         head=DeleteAtEnd(head);
         print(head);
-        System.out.println(" ");
+        
         head=DeleteAtMiddle(head,2);
         print(head);
-        System.out.println(" ");
+        
         System.out.println(search(head,5));
+
 
     }
 
@@ -147,22 +147,27 @@ public class InsertAtBegin {
     }
     //Printing element(Recursively)
     public static void print(Node head){
-        if(head==null){
-            return ;
+//        if(head==null){
+//            return ;
+//        }
+//        System.out.print(head.data+" ");
+//        print(head.next);
+        Node temp=head;
+        while(temp!=null){
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+
         }
-        System.out.print(head.data+" ");
-        print(head.next);
+        System.out.println(" ");
+
 
     }
-    
-    
-    //Print search value index
+
     public static int search(Node head,int searchvalue){
         int c=0;
         Node temp=head;
         while(temp!=null){
             if(temp.data==searchvalue){
-                //c++ if index is 1
                 return c;
 
             }
