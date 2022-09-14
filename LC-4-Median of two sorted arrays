@@ -1,0 +1,55 @@
+//O(LOG N)
+class Solution {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        double d=0;
+        int[] c=new int[nums1.length+nums2.length];
+        c=merge(nums1,nums2,c);
+        if((c.length)%2==1){
+         
+            d = c[c.length/2];
+        }
+        else{
+            d =(double) (c[c.length/2]+c[(c.length/2)-1])/2;
+        }
+        return d;
+        
+    }
+    public int[] merge(int[] a, int[] b,int[] c){
+        int i=0;
+        int j=0;
+        int n=a.length;
+        int n1=b.length;
+        int k=0;
+        while(i<n && j<n1){
+            if(a[i]<b[j])
+                c[k++]=a[i++];
+            else
+                c[k++]=b[j++];
+        }
+        while(i<n){
+            c[k++]=a[i++];
+        }
+        while(j<n1){
+            c[k++]=b[j++];
+        }
+        return c;
+    }
+}
+
+
+
+
+//PYTHON
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        l=nums1+nums2
+        n=len(l)
+        l.sort()
+        if(len(l)%2!=0):
+            m=n//2
+            return l[m]
+        else:
+            m=n//2
+            b=m-1
+            c=(l[m]+l[b])/2
+            return c
