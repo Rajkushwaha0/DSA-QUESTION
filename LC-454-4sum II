@@ -1,3 +1,13 @@
+Brute force would be if you use for loop and count which pair are making sum zero.-----> O(N^4)
+
+O(N^3)
+Next approch would be if you use three loop and make fourth array element in hashmap and check zero minus sum of three nums of three array if present increment count.
+
+
+
+
+
+O(N^2)
 class Solution {
     public int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) {
         HashMap<Integer,Integer> hm = new HashMap<>();
