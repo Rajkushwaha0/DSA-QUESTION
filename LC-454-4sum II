@@ -1,0 +1,33 @@
+class Solution {
+    public int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) {
+        HashMap<Integer,Integer> hm = new HashMap<>();
+        int sum=0;
+        for(int i=0;i<nums3.length;i++){
+            for (int j=0;j<nums4.length;j++){
+                sum=nums3[i]+nums4[j];
+                if(hm.containsKey(sum)){
+                    hm.put(sum,hm.get(sum)+1);
+                }
+                else{
+                    hm.put(sum,1);
+                }
+            }
+        }
+        System.out.print(hm);
+        int sum1=0;
+        int c=0;
+        for(int k=0;k<nums1.length;k++){
+            for (int l=0;l<nums2.length;l++){
+                sum1=0-(nums1[k]+nums2[l]);
+                if(hm.containsKey(sum1)){
+                    c+=hm.get(sum1);
+                }
+                else{
+                    continue;
+                }
+                    
+            }
+        }
+        return c;
+    }
+}
