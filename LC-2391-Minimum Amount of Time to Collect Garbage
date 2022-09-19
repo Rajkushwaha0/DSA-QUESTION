@@ -1,0 +1,28 @@
+class Solution {
+    public int garbageCollection(String[] a, int[] travel) {
+        int g=0,p=0,m=0;
+        int pick=0;
+        for(int i=0;i<a.length;i++){
+            pick+=a[i].length();
+            if(a[i].contains("G")){
+                g=i;
+            }
+            if(a[i].contains("P")){
+                p=i;
+            }
+            if(a[i].contains("M")){
+                m=i;
+            }
+        }
+     for(int k=0;k<g;k++){
+         pick+=travel[k];
+     }
+        for(int b=0;b<p;b++){
+         pick+=travel[b];
+     }
+        for(int c=0;c<m;c++){
+         pick+=travel[c];
+     }
+        return pick;
+    }
+}
