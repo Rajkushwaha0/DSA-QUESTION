@@ -1,0 +1,38 @@
+class Solution {
+    public List<Integer> majorityElement(int[] a) {
+        List<Integer> l = new ArrayList<>();
+        if(a.length<3){
+            HashSet<Integer> s = new HashSet<>();
+            for(int k=0;k<a.length;k++){
+                if(s.contains(a[k])){
+                    continue;
+                }
+                else{
+                    l.add(a[k]);
+                    s.add(a[k]);
+                }
+            }
+            return l;
+        }
+        int n=a.length/3;
+        HashMap<Integer,Integer> hm = new HashMap<>();
+        for(int i=0;i<a.length;i++){
+            if(hm.containsKey(a[i])){
+                hm.put(a[i],hm.get(a[i])+1);
+                if(hm.get(a[i])>n){
+                    if(l.contains(a[i])){
+                        continue;
+                    }
+                    else{
+                    l.add(a[i]);
+                    }
+                    
+                }
+            }
+            else{
+                hm.put(a[i],1);
+            }
+        }
+        return l;
+    }
+}
