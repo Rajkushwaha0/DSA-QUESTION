@@ -31,3 +31,30 @@ class Solution {
         
     }
 }
+
+
+//stack
+class Solution
+{
+    //Function to find the next greater element for each element of the array.
+    public static long[] nextLargerElement(long[] arr, int n)
+    { 
+        // Your code here
+        long[] ans=new long[arr.length];
+        Stack<Long> s=new Stack<>();
+        for(int i=n-1;i>=0;i--){
+            long curr=arr[i];
+            while(s.size()!=0 && s.peek()<=curr){
+                s.pop();
+            }
+            if(s.isEmpty()){
+                ans[i]=-1;
+            }
+            else{
+                ans[i]=s.peek();
+            }
+            s.push(curr);
+        }
+        return ans;
+    } 
+}
