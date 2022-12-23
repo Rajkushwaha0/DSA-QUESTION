@@ -1,3 +1,5 @@
+Mentored Solution: https://ideone.com/PDFsFf
+
 //JAVA
 class Solution {
     public int[] twoSum(int[] nums, int target) {
