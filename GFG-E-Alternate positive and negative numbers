@@ -1,0 +1,34 @@
+class Solution:
+    def rearrange(self,arr, n):
+        p=[]
+        n=[]
+        for i in arr:
+            if(i<0):
+                n.append(i)
+            else:
+                p.append(i)
+        
+        i=0
+        j=0
+        ln=len(n)
+        lp=len(p)
+        
+        k=0
+        index=0
+        while(i<ln and j<lp):
+            if(k%2==0):
+                arr[index]=p[j]
+                j+=1
+            else:
+                arr[index]=n[i]
+                i+=1
+            k+=1
+            index+=1
+        while(i<ln):
+            arr[index]=n[i]
+            i+=1
+            index+=1
+        while(j<lp):
+            arr[index]=p[j]
+            j+=1
+            index+=1
