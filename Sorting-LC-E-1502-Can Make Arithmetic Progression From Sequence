@@ -1,0 +1,36 @@
+//Brute Force
+
+class Solution {
+    public boolean canMakeArithmeticProgression(int[] arr) {
+        List<Integer> l = new ArrayList<>();
+        HashSet<Integer> set = new HashSet<>();
+        for(int i=0;i<arr.length;i++){
+            l.add(arr[i]);
+            set.add(arr[i]);
+        }
+        Collections.sort(l);
+        if(arr.length==2) return true;
+        int n = l.get(1)-l.get(0);
+        boolean flag = true;
+        for(int i=2;i<arr.length;i++){
+            if(l.get(i)-l.get(i-1)!=n) {
+                flag=false;
+                break;
+            }
+        }
+        boolean flag1 = true;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]!=l.get(i)) {
+                flag1=false;
+                break;
+            }
+
+
+        }
+        if(flag==true && (flag1==false || set.size()==1)) return true;
+        
+        return false;
+
+        
+    }
+}
